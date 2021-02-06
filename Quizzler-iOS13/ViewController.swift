@@ -35,7 +35,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-        progressBar.progress = 1.0 / Float(quiz.count)
     }
     
     @IBAction func answerButton(_ sender: UIButton) {
@@ -55,14 +54,13 @@ class ViewController: UIViewController {
             questionNumber = 0
         }
         Timer.scheduledTimer(timeInterval: 0.3, target:self, selector: #selector(updateUI), userInfo:nil, repeats: true)
-        
-        progressBar.progress = Float(questionNumber + 1) * 1.0 / Float(quiz.count)
     }
     
     @objc func updateUI(){
         questionLabel.text = quiz[questionNumber].text
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
+        progressBar.progress = Float(questionNumber + 1) / Float (quiz.count)
     }
     
 }
