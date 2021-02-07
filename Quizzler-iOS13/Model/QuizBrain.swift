@@ -40,14 +40,8 @@ struct QuizBrain {
         return quiz[questionNumber].text
     }
     
-    func getChoiceText (name: String) -> String {
-        if name == "choice1" {
-            return quiz[questionNumber].answer[0]
-        } else if name == "choice2" {
-            return quiz[questionNumber].answer[1]
-        } else {
-            return quiz[questionNumber].answer[2]
-        }
+    func getChoiceText () -> [String] {
+        return quiz[questionNumber].answer
     }
     
     func getProgress () -> Float {
